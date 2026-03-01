@@ -14,6 +14,29 @@ dotenv.config();
 // データベースの初期化
 初期化();
 
+// テストユーザーのシード
+const テストユーザーをシード = async () => {
+  const テストユーザー名 = 'test';
+  const テストパスワード = 'password';
+
+  try {
+    const ユーザー確認クエリ = データベース.prepare('SELECT id FROM ユーザー WHERE ユーザー名 = ?');
+    const 既存ユーザー = ユーザー確認クエリ.get(テストユーザー名);
+
+    if (!既存ユーザー) {
+      const ハッシュ = await パスワードをハッシュ化(テストパスワード);
+      const ユーザー登録クエリ = データベース.prepare('INSERT INTO ユーザー (ユーザー名, パスワードハッシュ) VALUES (?, ?)');
+      ユーザー登録クエリ.run(テストユーザー名, ハッシュ);
+      console.log(`テストユーザー ('${テストユーザー名}', パスワード: '${テストパスワード}') を作成しました。`);
+    } else {
+      console.log(`テストユーザー ('${テストユーザー名}') は既に存在します。`);
+    }
+  } catch (エラー) {
+    console.error('テストユーザーの作成中にエラーが発生しました:', エラー);
+  }
+};
+テストユーザーをシード();
+
 const アプリ = express();
 const ポート番号 = process.env.PORT || 3000;
 

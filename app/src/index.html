@@ -1,16 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World</title>
+    <title>Hello World App</title>
     <script type="module" src="/main.js" defer></script>
   </head>
 
   <body>
-    <main class="container">
+    <!-- ログイン画面 -->
+    <main id="ログインコンテナ" class="container">
+      <h1>ログイン</h1>
+      <form id="ログインフォーム">
+        <div class="入力グループ">
+          <label for="ユーザー名">ユーザー名</label>
+          <input type="text" id="ユーザー名" name="ユーザー名" required />
+        </div>
+        <div class="入力グループ">
+          <label for="パスワード">パスワード</label>
+          <input type="password" id="パスワード" name="パスワード" required />
+        </div>
+        <div id="エラーメッセージ" class="エラーメッセージ hidden"></div>
+        <button type="submit" id="ログインボタン">ログイン</button>
+      </form>
+    </main>
+
+    <!-- ハローワールド画面 (初期状態では非表示) -->
+    <main id="ハローワールドコンテナ" class="container hidden">
       <h1>Hello World</h1>
+      <button id="ログアウトボタン">ログアウト</button>
     </main>
   </body>
 </html>
