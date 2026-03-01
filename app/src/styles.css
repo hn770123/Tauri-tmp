@@ -110,3 +110,50 @@ button {
     background-color: #0f0f0f69;
   }
 }
+
+/* ログイン画面用の追加スタイル */
+.hidden {
+  display: none !important;
+}
+
+#ログインフォーム {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.入力グループ {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.入力グループ label {
+  margin-bottom: 5px;
+  font-size: 0.9em;
+}
+
+.入力グループ input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.エラーメッセージ {
+  color: #ff4d4f;
+  font-size: 0.9em;
+  min-height: 1.5em;
+}
+
+#ログインボタン, #ログアウトボタン {
+  margin-top: 10px;
+  width: 100%;
+}
+
+#ログアウトボタン {
+  max-width: 200px;
+  margin: 20px auto;
+}
